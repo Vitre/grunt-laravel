@@ -1,4 +1,4 @@
 grunt-laravel
 =============
 
-Laravel grunt task
+Grunt task for Laravel

@@ -1,0 +1,30 @@
+{
+  "name": "grunt-laravel",
+  "version": "0.0.0",
+  "description": "Grunt task for Laravel",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Vitre/grunt-laravel.git"
+  },
+  "keywords": [
+    "grunt",
+    "laravel"
+  ],
+  "author": {
+    "name": "Vít Mádr",
+    "email": "vit.madr@gmail.com"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.githubusercontent.com/Vitre/grunt-symfony/master/LICENSE"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/Vitre/grunt-laravel/issues"
+  },
+  "homepage": "https://github.com/Vitre/grunt-laravel"
+}

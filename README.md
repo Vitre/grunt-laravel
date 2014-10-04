@@ -28,10 +28,10 @@ Package gruntfile
 [PACKAGE_ROOT]/Gruntfile.js
 
 ```javascript
-module.exports = function (grunt, config, package, options) {
+module.exports = function (grunt, config, pkg, options) {
 
     config.sass = config.sass || {};
-    config.sass[package.name + "_dist"] = {
+    config.sass[pkg.name + "_dist"] = {
         "options": {
             "style": "compressed",
             "compass": true
@@ -39,7 +39,7 @@ module.exports = function (grunt, config, package, options) {
         "files": [
             {
                 "expand": true,
-                "cwd": package.resources + "/public/scss",
+                "cwd": pkg.resources + "/public/scss",
                 "src": ["*.scss"],
                 "dest": options.web + "/admin/@/css",
                 "ext": ".css"
@@ -48,9 +48,9 @@ module.exports = function (grunt, config, package, options) {
     };
 
     config.watch = config.watch || {};
-    config.watch[package.name + "_sass"] = {
-        files: package.resources + "/public/scss/**/*.scss",
-        tasks: ["sass:" + package.name + "_dist"]
+    config.watch[pkg.name + "_sass"] = {
+        files: pkg.resources + "/public/scss/**/*.scss",
+        tasks: ["sass:" + pkg.name + "_dist"]
     };
 
 };
@@ -79,10 +79,10 @@ module.exports = function (grunt) {
 
     // Laravel packages import
     gruntLaravel.importPackages(grunt, config, {
-        web: 'web',
+        public: 'public',
         workbench: 'workbench',
         gruntFile: 'Gruntfile.js',
-        resources: 'Resources'
+        resources: 'src'
     });
 
     //---
@@ -134,13 +134,13 @@ Resources path.
 
 Type: `String` Default: 'Gruntfile.js'
 
-package Gruntfile filename.
+Package Gruntfile filename.
 
 ##### resources
 
-Type: `String` Default: 'Resources'
+Type: `String` Default: 'src'
 
-package resources folder name.
+Package resources folder name.
 
 
 
@@ -178,7 +178,7 @@ Type: `String`
 
 Package resources path.
 
-##### web
+##### public
 
 Type: `String`
 

@@ -2,7 +2,7 @@
  * grunt-laravel
  * @author vitre
  * @licence MIT
- * @version 1.1.22
+ * @version 0.0.x
  * @url https://www.npmjs.org/package/grunt-laravel
  */
 
@@ -18,7 +18,7 @@ var defaults = {
     public: 'public',
     workbench: 'workbench',
     gruntFile: 'Gruntfile.js',
-    resources: 'Resources'
+    resources: 'src'
 };
 
 var options;
@@ -49,16 +49,19 @@ var getPackages = function (root, r) {
             var name_camelcase = name.replace(/\//g, '');
             var name_public = name_camelcase.toLowerCase();
 
-            var _package = {
+            var pkg = {
                 name: name,
                 name_camelcase: name_camelcase,
                 name_public: name_public,
                 path: path,
                 resources: path + '/' + defaults.resources,
-                public: options.public + '/packages/' + name_public
+                public: options.public + '/packages/' + name_public,
+                gruntFile: path + '/' + defaults.gruntFile
             };
 
-            r.push(_package);
+            if (fs.existsSync(pkg.gruntFile)) {
+                r.push(pkg);
+            }
 
             getPackages(path, r);
         }
@@ -68,17 +71,17 @@ var getPackages = function (root, r) {
 
 /**
  * importPackage
- * @param _package
+ * @param pkg
  * @param config
  */
-var importPackage = function (_package, config) {
-    var gruntFile = _package.path + '/' + defaults.gruntFile;
+var importPackage = function (pkg, config) {
+    var gruntFile = pkg.path + '/' + defaults.gruntFile;
     if (fs.existsSync(gruntFile)) {
         var filePath = path.resolve(gruntFile);
 
-        console.log('Importing package: ' + _package.name + ' [' + gruntFile + ']');
+        console.log('Importing package: ' + pkg.name + ' [' + gruntFile + ']');
 
-        require(filePath)(grunt, config, _package, options);
+        require(filePath)(grunt, config, pkg, options);
     }
 };
 

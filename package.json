@@ -1,30 +1,38 @@
 {
-  "name": "grunt-laravel",
-  "version": "0.0.0",
-  "description": "Grunt task for Laravel",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/Vitre/grunt-laravel.git"
-  },
-  "keywords": [
-    "grunt",
-    "laravel"
-  ],
-  "author": {
-    "name": "Vít Mádr",
-    "email": "vit.madr@gmail.com"
-  },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://raw.githubusercontent.com/Vitre/grunt-symfony/master/LICENSE"
-    }
-  ],
-  "bugs": {
-    "url": "https://github.com/Vitre/grunt-laravel/issues"
-  },
-  "homepage": "https://github.com/Vitre/grunt-laravel"
+    "name": "grunt-laravel",
+    "description": "Grunt for Laravel",
+    "homepage": "https://github.com/Vitre/grunt-laravel",
+    "keywords": [
+        "grunt",
+        "laravel"
+    ],
+    "author": {
+        "name": "Vít Mádr",
+        "email": "vit.madr@gmail.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Vitre/grunt-laravel.git"
+    },
+    "main": "grunt-laravel.js",
+    "version": "0.0.1",
+    "dependencies": {
+        "node.extend": "latest"
+    },
+    "scripts": {},
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://raw.githubusercontent.com/Vitre/grunt-laravel/master/LICENSE"
+        }
+    ],
+    "files": [
+        "grunt-laravel.js",
+        "LICENSE"
+    ],
+    "readmeFilename": "README.md",
+    "bugs": {
+        "url": "https://github.com/Vitre/grunt-laravel/issues"
+    },
+    "main": "grunt-laravel.js"
 }

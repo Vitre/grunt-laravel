@@ -1,9 +1,9 @@
-grunt-laravel
+grunt-laravel ![Monthly downloads](http://img.shields.io/npm/dm/grunt-laravel.svg)
 =============
 
 Grunt module for Laravel.
 
-![Monthly downloads](http://img.shields.io/npm/dm/grunt-laravel.svg)
+[![NPM](https://nodei.co/npm/grunt-laravel.png)](https://nodei.co/npm/grunt-laravel/)
 
 Features
 --------

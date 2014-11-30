@@ -118,9 +118,11 @@ exports.importPackages = function (_grunt, config, _options) {
         options = extend(true, {}, defaults, _options);
     }
 
-    config.laravel = {
-        packages: {}
-    };
+    config.laravel = extend(config.laravel, {
+        packages: {},
+        dist_tasks: [],
+        dev_tasks: []
+    });
 
     importPackages(config);
 }

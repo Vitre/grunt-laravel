@@ -47,11 +47,15 @@ var getPackages = function (root, r) {
 
             var name = path.substr(defaults.workbench.length + 1, path.length);
             var name_camelcase = name.replace(/\//g, '');
+            var name_dashed = name.replace(/\//g, '-');
+            var name_underscore = name.replace(/\//g, '_').replace(/-/g, '_');
             var name_public = name_camelcase.toLowerCase();
 
             var pkg = {
                 name: name,
                 name_camelcase: name_camelcase,
+                name_dashed: name_dashed,
+                name_underscore: name_underscore,
                 name_public: name_public,
                 path: path,
                 resources: path + '/' + defaults.resources,
@@ -79,7 +83,7 @@ var importPackage = function (pkg, config) {
     if (fs.existsSync(gruntFile)) {
         var filePath = path.resolve(gruntFile);
 
-        console.log('Importing package: ' + pkg.name + ' [' + gruntFile + ']');
+        console.log('Importing package: ' + pkg.name['green'] + (' [' + gruntFile + ']')['grey']);
 
         require(filePath)(grunt, config, pkg, options);
     }
@@ -91,7 +95,11 @@ var importPackage = function (pkg, config) {
  */
 var importPackages = function (config) {
     packages = getPackages();
+
     for (var i = 0; i < packages.length; i++) {
+
+        config.laravel.packages[packages[i].name_underscore] = packages[i];
+
         importPackage(packages[i], config);
     }
 };
@@ -109,5 +117,10 @@ exports.importPackages = function (_grunt, config, _options) {
     } else {
         options = extend(true, {}, defaults, _options);
     }
+
+    config.laravel = {
+        packages: {}
+    };
+
     importPackages(config);
 }

@@ -15,7 +15,7 @@
         "url": "https://github.com/Vitre/grunt-laravel.git"
     },
     "main": "grunt-laravel.js",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "dependencies": {
         "node.extend": "latest"
     },

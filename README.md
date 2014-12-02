@@ -160,6 +160,18 @@ Type: `String`
 
 Package name in camelcase.
 
+##### name_underscore
+
+Type: `String`
+
+Package name in underscore format.
+
+##### name_dashed
+
+Type: `String`
+
+Package name in dashed format.
+
 ##### name_public
 
 Type: `String`
@@ -183,3 +195,9 @@ Package resources path.
 Type: `String`
 
 Package public path.
+
+### Release 0.0.2
+* Package object new names (`name_dashed`, `name_underscore`)
+* Grunt config `laravel` registry `config.laravel: { packages: {...}, dist_tasks: [...], dev_tasks: [...] } `
+
+

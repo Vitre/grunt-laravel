@@ -101,6 +101,17 @@ module.exports = function (grunt) {
 
 ```
 
+Gruntfile config registry
+-------------------------
+Task stores some information into global grunt config variable. You can use it for custom task creation.
+
+`config.laravel: { packages: {}, dist_tasks: [], dev_tasks: [] } `
+
+### Task creation example
+```javascript
+grunt.registerTask('build', [].concat(['sass'], config.laravel.dist_tasks, ['uglify']));
+```
+
 API
 ---
 
@@ -196,7 +207,8 @@ Type: `String`
 
 Package public path.
 
-### Release 0.0.2
+Release 0.0.2
+-------------
 * Package object new names (`name_dashed`, `name_underscore`)
 * Grunt config `laravel` registry `config.laravel: { packages: {...}, dist_tasks: [...], dev_tasks: [...] } `
 

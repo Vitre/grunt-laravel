@@ -108,6 +108,13 @@ Task stores some information into global grunt config variable. You can use it f
 `config.laravel: { packages: {}, dist_tasks: [], dev_tasks: [] } `
 
 ### Task creation example
+
+#### Package gruntfile
+```javascript
+config.laravel.dev_tasks.push('uglify:' + package.name + '_dev');
+```
+
+#### Global gruntfile
 ```javascript
 grunt.registerTask('build', [].concat(['sass'], config.laravel.dist_tasks, ['uglify']));
 ```

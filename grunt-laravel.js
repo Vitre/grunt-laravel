@@ -34,7 +34,7 @@ var grunt;
  */
 var getPackages = function (root, r) {
     if (typeof root === 'undefined') {
-        root = defaults.workbench;
+        root = options.workbench;
     }
     if (typeof r === 'undefined') {
         r = [];
@@ -45,7 +45,7 @@ var getPackages = function (root, r) {
         var path = root + '/' + files[i];
         if (fs.statSync(path).isDirectory()) {
 
-            var name = path.substr(defaults.workbench.length + 1, path.length);
+            var name = path.substr(options.workbench.length + 1, path.length);
             var name_camelcase = name.replace(/\//g, '');
             var name_dashed = name.replace(/\//g, '-');
             var name_underscore = name.replace(/\//g, '_').replace(/-/g, '_');
@@ -58,9 +58,9 @@ var getPackages = function (root, r) {
                 name_underscore: name_underscore,
                 name_public: name_public,
                 path: path,
-                resources: path + '/' + defaults.resources,
+                resources: path + '/' + options.resources,
                 public: options.public + '/packages/' + name_public,
-                gruntFile: path + '/' + defaults.gruntFile
+                gruntFile: path + '/' + options.gruntFile
             };
 
             if (fs.existsSync(pkg.gruntFile)) {
@@ -79,7 +79,7 @@ var getPackages = function (root, r) {
  * @param config
  */
 var importPackage = function (pkg, config) {
-    var gruntFile = pkg.path + '/' + defaults.gruntFile;
+    var gruntFile = pkg.path + '/' + options.gruntFile;
     if (fs.existsSync(gruntFile)) {
         var filePath = path.resolve(gruntFile);
 
